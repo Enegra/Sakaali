@@ -25,7 +25,7 @@ public class Main extends Application {
 
 
     private void setStages(){
-        
+
     }
 
     public static void main(String[] args) {
