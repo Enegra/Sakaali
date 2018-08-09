@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_sakaali" default="compile.module.sakaali">
+  <dirname property="module.sakaali.basedir" file="${ant.file.module_sakaali}"/>
+  
+  <property name="module.jdk.home.sakaali" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.sakaali" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.sakaali" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.sakaali" value="-encoding UTF-8 -source 10 -target 10 ${compiler.args}"/>
+  
+  <property name="sakaali.output.dir" value="${module.sakaali.basedir}/out/production/Sakaali"/>
+  <property name="sakaali.testoutput.dir" value="${module.sakaali.basedir}/out/test/Sakaali"/>
+  
+  <path id="sakaali.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="sakaali.module.production.classpath">
+    <path refid="${module.jdk.classpath.sakaali}"/>
+    <path refid="library.jfoenix-9.0.6.classpath"/>
+  </path>
+  
+  <path id="sakaali.runtime.production.module.classpath">
+    <pathelement location="${sakaali.output.dir}"/>
+    <path refid="library.jfoenix-9.0.6.classpath"/>
+  </path>
+  
+  <path id="sakaali.module.classpath">
+    <path refid="${module.jdk.classpath.sakaali}"/>
+    <pathelement location="${sakaali.output.dir}"/>
+    <path refid="library.jfoenix-9.0.6.classpath"/>
+  </path>
+  
+  <path id="sakaali.runtime.module.classpath">
+    <pathelement location="${sakaali.testoutput.dir}"/>
+    <pathelement location="${sakaali.output.dir}"/>
+    <path refid="library.jfoenix-9.0.6.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.sakaali">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.sakaali">
+    <patternset refid="excluded.from.module.sakaali"/>
+  </patternset>
+  
+  <path id="sakaali.module.sourcepath">
+    <dirset dir="${module.sakaali.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.sakaali" depends="compile.module.sakaali.production,compile.module.sakaali.tests" description="Compile module Sakaali"/>
+  
+  <target name="compile.module.sakaali.production" depends="register.custom.compilers" description="Compile module Sakaali; production classes">
+    <mkdir dir="${sakaali.output.dir}"/>
+    <javac2 destdir="${sakaali.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.sakaali}/javac">
+      <compilerarg line="${compiler.args.sakaali}"/>
+      <bootclasspath refid="sakaali.module.bootclasspath"/>
+      <classpath refid="sakaali.module.production.classpath"/>
+      <src refid="sakaali.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.sakaali"/>
+    </javac2>
+    
+    <copy todir="${sakaali.output.dir}">
+      <fileset dir="${module.sakaali.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.sakaali.tests" depends="register.custom.compilers,compile.module.sakaali.production" description="compile module Sakaali; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.sakaali" description="cleanup module">
+    <delete dir="${sakaali.output.dir}"/>
+    <delete dir="${sakaali.testoutput.dir}"/>
+  </target>
+</project>

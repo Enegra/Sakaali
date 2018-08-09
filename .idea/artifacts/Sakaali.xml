@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Sakaali">
+    <output-path>$PROJECT_DIR$/out/artifacts/Sakaali</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="presentation.Main" />
+        <option name="description" value="A display of my skills/abilities." />
+        <option name="height" value="900" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Saka in a Jar" />
+        <option name="vendor" value="Agnieszka Valtonen" />
+        <option name="version" value="0.1.1" />
+        <option name="width" value="900" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Sakaali.jar">
+        <element id="module-output" name="Sakaali" />
+      </element>
+    </root>
+  </artifact>
+</component>

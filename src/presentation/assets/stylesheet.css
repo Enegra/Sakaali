@@ -1,0 +1,133 @@
+.root {
+	-fx-background-color: #000000;
+	-fx-font-family: "Open Sans", sans-serif;
+	-fx-accent: rgb(246, 246, 246);
+	/*-fx-default-button: -fx-accent;*/
+	-jfx-primary-color: -fx-accent;
+	-jfx-light-primary-color: -fx-accent;
+	-jfx-dark-primary-color: -fx-accent;
+	-fx-focus-color: rgb(222, 222, 222);
+	-jfx-secondary-color: -fx-focus-color;
+	-jfx-light-secondary-color: -fx-focus-color;
+	-jfx-dark-secondary-color: -fx-focus-color;
+}
+
+#introRoot {
+	-fx-background-image: url("background.png");
+}
+
+#introHeader {
+	-fx-font-family: "Pacifico";
+	-fx-font-size: 60pt;
+}
+
+#introIntroduction {
+	-fx-font-family: "Open Sans";
+	-fx-font-size: 12pt;
+	-fx-font-weight: bold;
+}
+
+#introName {
+	-fx-font-family: "Pacifico";
+	-fx-font-size: 24pt;
+}
+
+.jfx-button {
+	-jfx-button-type: RAISED;
+	-fx-background-color: #6d1e53;
+	-fx-text-fill: white;
+	-jfx-rippler-fill: #f4c0ff;
+	-fx-font-family: "Open Sans";
+	-fx-font-size: 12pt;
+	-fx-font-weight: bold;
+}
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-Regular.ttf");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-Italic.ttf");
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-Bold.ttf");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-BoldItalic.ttf");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-ExtraBold.ttf");
+	font-weight: 800;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-ExtraBoldItalic.ttf");
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-SemiBold.ttf");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-SemiBoldItalic.ttf");
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-Light.ttf");
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("fonts/OpenSans-LightItalic.ttf");
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Pacifico";
+	src: url("fonts/Pacifico.ttf");
+	font-weight: normal;
+}
+
+.jfx-tab-pane .headers-region {
+	-fx-background-color: -fx-accent;
+}
+
+.jfx-tab-pane .tab-header-background {
+	-fx-background-color: -fx-accent;
+}
+
+.jfx-tab-pane .tab-selected-line {
+	-fx-stroke: -fx-accent;
+}
+
+.jfx-tab-pane .tab-header-area .jfx-rippler {
+	-jfx-rippler-fill: -fx-focus-color;
+}
+
+.tab-selected-line {
+	-fx-background-color: -fx-focus-color;
+}

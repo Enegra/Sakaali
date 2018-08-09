@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="introRoot" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.IntroController">
+    <children>
+        <ImageView fx:id="introImage">
+            <Image url="@assets/fadedlettuce.png" />
+        </ImageView>
+        <GridPane fx:id="textGrid">
+            <children>
+                <Text fx:id="introHeader" fill="#ffffff" GridPane.halignment="CENTER">
+                </Text>
+                <Text fx:id="introIntroduction" fill="#ffffff" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                </Text>
+                <Text fx:id="introName" fill="#ffffff" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                </Text>
+              <JFXButton fx:id="continueButton" minHeight="40.0" minWidth="90.0" text="Continue &gt;" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" onAction="#continueButtonEvent">
+               <GridPane.margin>
+                  <Insets top="50.0" />
+               </GridPane.margin></JFXButton>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
