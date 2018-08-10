@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.github.fxrouter.FXRouter;
 
 public class Main extends Application {
 
@@ -21,11 +20,6 @@ public class Main extends Application {
         startScene.getStylesheets().add(stylesheetPath);
         primaryStage.setScene(startScene);
         primaryStage.show();
-    }
-
-
-    private void setStages(){
-
     }
 
     public static void main(String[] args) {

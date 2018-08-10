@@ -1,12 +1,13 @@
 .root {
 	-fx-background-color: #000000;
 	-fx-font-family: "Open Sans", sans-serif;
-	-fx-accent: rgb(246, 246, 246);
+	-fx-accent: rgb(122, 30, 97);
 	/*-fx-default-button: -fx-accent;*/
+	-fx-default-tab-color: transparent;
 	-jfx-primary-color: -fx-accent;
 	-jfx-light-primary-color: -fx-accent;
 	-jfx-dark-primary-color: -fx-accent;
-	-fx-focus-color: rgb(222, 222, 222);
+	-fx-focus-color: rgb(255, 174, 101);
 	-jfx-secondary-color: -fx-focus-color;
 	-jfx-light-secondary-color: -fx-focus-color;
 	-jfx-dark-secondary-color: -fx-focus-color;
@@ -112,12 +113,17 @@
 	font-weight: normal;
 }
 
+#tabContainer {
+	-fx-background-image: url("tabsbackground.png"), url("panebackground.png");
+	-fx-background-repeat: no-repeat;
+}
+
 .jfx-tab-pane .headers-region {
-	-fx-background-color: -fx-accent;
+	-fx-background-color: -fx-default-tab-color;
 }
 
 .jfx-tab-pane .tab-header-background {
-	-fx-background-color: -fx-accent;
+	-fx-background-color: -fx-default-tab-color;
 }
 
 .jfx-tab-pane .tab-selected-line {

@@ -1,14 +1,18 @@
 package presentation;
 
 import com.jfoenix.controls.JFXTabPane;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 
 public class TabController {
@@ -32,6 +36,7 @@ public class TabController {
     @FXML
     private void initialize(){
         setTabContainer();
+        equipmentTab.setStyle("-fx-background-image: url(\"presentation/assets/selectionbackground2.png\")");
     }
 
     private void setTabContainer(){
@@ -41,27 +46,47 @@ public class TabController {
         tabContainer.setTabMinHeight(tabWidth);
         tabContainer.setTabMaxHeight(tabWidth);
         tabContainer.setRotateGraphic(true);
-        configureTab(equipmentTab, "Equipment", "presentation/assets/cogsmall.png");
-        configureTab(buildTab, "Build", "presentation/assets/cogsmall.png");
+        setTab(equipmentTab, "Equipment", "presentation/assets/cogsmall.png");
+        setTab(buildTab, "Build", "presentation/assets/cogsmall.png");
     }
 
-    private void configureTab(Tab tab, String title, String iconPath) {
+    private void setTab(Tab tab, String title, String iconPath) {
         double imageWidth = 40.0;
         ImageView imageView = new ImageView(new Image(iconPath));
         imageView.setFitHeight(imageWidth);
         imageView.setFitWidth(imageWidth);
-        Label label = new Label(title);
-        label.setMaxWidth(tabWidth - 20);
-        label.setPadding(new Insets(5,0,0,0));
-        label.setStyle("-fx-text-fill: black; -fx-font-size: 10pt; -fx-font-weight: normal;");
-        label.setTextAlignment(TextAlignment.CENTER);
         BorderPane tabPane = new BorderPane();
         tabPane.setRotate(90.0);
         tabPane.setMaxWidth(tabWidth);
         tabPane.setCenter(imageView);
-        tabPane.setBottom(label);
+        tabPane.setBottom(setLabel(title));
         tab.setGraphic(tabPane);
+        tab.setOnSelectionChanged(replaceBackgroundColorHandler);
 
     }
+
+    private Label setLabel(String title){
+        Label label = new Label(title);
+        label.setMaxWidth(tabWidth - 20);
+        label.setPadding(new Insets(5,0,0,0));
+        label.setStyle("-fx-text-fill: white; -fx-font-size: 10pt; -fx-font-weight: bold;");
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(1.5);
+        dropShadow.setOffsetX(1.0);
+        dropShadow.setOffsetY(1.0);
+        dropShadow.setColor(Color.rgb(0,0,0,0.8));
+        label.setTextAlignment(TextAlignment.CENTER);
+        return label;
+    }
+
+    private EventHandler<Event> replaceBackgroundColorHandler = event -> {
+        lastSelectedTabIndex = tabContainer.getSelectionModel().getSelectedIndex();
+        Tab currentTab = (Tab) event.getTarget();
+        if (currentTab.isSelected()) {
+            currentTab.setStyle("-fx-background-image: url(\"presentation/assets/selectionbackground2.png\");");
+        } else {
+            currentTab.setStyle("-fx-background-color: -fx-default-tab-color;");
+        }
+    };
 
 }
