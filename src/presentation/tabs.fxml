@@ -18,5 +18,15 @@
                 <AnchorPane fx:id="buildPane" prefHeight="900.0" prefWidth="800.0"/>
             </content>
         </Tab>
+        <Tab fx:id="trainingTab">
+            <content>
+                <AnchorPane fx:id="trainingPane" prefHeight="900.0" prefWidth="800.0" />
+            </content>
+        </Tab>
+        <Tab fx:id="masteryTab">
+        <content>
+            <AnchorPane fx:id="masteryPane" prefHeight="900.0" prefWidth="800.0" />
+        </content>
+        </Tab>
     </tabs>
 </JFXTabPane>

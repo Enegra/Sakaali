@@ -135,5 +135,5 @@
 }
 
 .tab-selected-line {
-	-fx-background-color: -fx-focus-color;
+	-fx-background-color: transparent;
 }
